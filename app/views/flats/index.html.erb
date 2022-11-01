@@ -1,4 +1,8 @@
 
 
 <h1>This is the index</h1>
-<title></title>
+
+<% @flats.each do |flat| %>
+<%= flat.name %>
+
+<% end %>
