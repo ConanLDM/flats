@@ -1,6 +1,23 @@
+<div class="container-hero">
+  <%= image_tag "hero.jpg", class: "hero shadow-main rounded" %>
+
+  <%# <div class="card-welcome shadow-main rounded">
+    <h1>Work somewhere inspiring <u>today</u></h1>
+    <div class="welcome-booking-form">
+      <div>[Booking goes here]</div>
+    </div>
+  </div>
+  </div> %>
 
 
-<h1>This is the index</h1>
+  <div class="card-welcome shadow-main rounded">
+    <h1>Work somewhere inspiring <u>today</u></h1>
+    <div class="card welcome-booking-form">
+      [Booking goes here]
+    </div>
+  </div>
+  </div>
+
 
 <% @flats.each do |flat| %>
 <%= flat.name %>
