@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_flat, only: %i[new create]
+  before_action :set_booking, only: %i[show] # add delete too
+
   def new
     @flat = Flat.find(params[:flat_id])
     @booking = Booking.new
@@ -11,16 +13,23 @@ class BookingsController < ApplicationController
     @booking.flat = @flat
     if @booking.save
       redirect_to booking_path(@booking)
-      raise
+      # raise
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
   end
 
   private
 
   def set_flat
     @flat = Flat.find(params[:flat_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 
   def booking_params
