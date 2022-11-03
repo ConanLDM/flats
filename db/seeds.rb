@@ -40,8 +40,8 @@ puts "Pub desk created"
 
 Flat.create(
   name: "Sit down at Morley's",
-  description: "Can't to heat your own place anymore? Come and see how long our chicken sits there before the evening rush.",
-  address: "Morley's Chicke, 68A Westow Hill, London SE19 1RX",
+  description: "Can't heat your own place anymore? Come and see how long our chicken sits there before the evening rush.",
+  address: "Morley's Chicken, 68A Westow Hill, London SE19 1RX",
   image_url: "morleys.jpg",
   price_per_day: 5,
   user_id: 1

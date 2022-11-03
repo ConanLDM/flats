@@ -1,0 +1,18 @@
+<div class="container mt-2">
+  <div class="container mt-3 p-3 bg-white shadow-main rounded">
+    <h2><%= @flat.name %></h2>
+    <div class="d-flex flex-column">
+      <p><%= @flat.address %></p>
+      <% unless @flat.image_url.nil? %>
+        <%= image_tag @flat.image_url, alt: @flat.name, class: "w-50 img-fluid rounded" %>
+      <% end %>
+      <p>Desc: <%= @flat.description %></p>
+      <p class="btn btn-lg btn-success fw-bold">£<%= @flat.price_per_day.floor %></p>
+      <p>⬆️ make this a link</p>
+      <div class="d-flex justify-content-center align-items-center bg-info">
+        <p>Let's add mapify here so we can see where they are</p>
+      </div>
+      <%= link_to "Back", flats_path, class: "btn btn-sm btn-outline-dark mt-2" %>
+    </div>
+  </div>
+</div>

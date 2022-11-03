@@ -1,19 +1,28 @@
 <div class="card m-3 p-3 bounrded bg-dark text-light">
-  <p>[NEED TO HAVE FLEX - 1 tall row, 3 columns on medium screen, down to 2, then 1 for sm]</p>
-  <p>[each row contains a column with margins]</p>
-  <p>[middle column has additional margin so the cards are not aligned]</p>
+  <h3>To do:</h3>
+  <ul>
+    <li>Remove the spacing between cards</li>
+    <li>Remove text decoration for the cards - <b>priority</b></li>
+    <li>Show view - <b>priority</b></li>
+    <li>Show edit view - optional</li>
+    <li>Add booking model - <b>priority</b></li>
+  </ul>
 <%= link_to "See this example", "https://july.fund/?ref=onepagelove", class: "fs-2" %>
 </div>
 
 <div class="container">
   <div class="cards-container">
     <% @flats.each do |flat| %>
-      <div class="our-card rounded mb-4 p-3 shadow-main">
-        <h4 class="fw-bold"><%= flat.name %></h4>
-        <p><%= flat.description %></p>
-        <p>Daily rate: <%= flat.price_per_day %></p>
-        <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid rounded" %>
-      </div>
+      <%= link_to flat_path(flat) do %>
+        <div class="our-card rounded p-3 shadow-main">
+          <h4 class="fw-bold"><%= flat.name %></h4>
+          <p><%= flat.description %></p>
+          <p>Daily rate: £<%= flat.price_per_day.floor %></p>
+          <% unless flat.image_url.nil? %>
+            <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid rounded" %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
