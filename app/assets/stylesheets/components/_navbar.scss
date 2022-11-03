@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  z-index: 1000;
+  font-family: "Nunito", "Helvetica", "sans-serif";
 }
 
 .navbar-lewagon .navbar-collapse {
