@@ -50,6 +50,7 @@ body {
   padding-left: 2%;
   padding-right: 2%;
   text-align: center;
+  flex-grow: 1;
   h1 {
     font-size: 6rem;
     padding: 4%;
@@ -64,11 +65,14 @@ body {
 .welcome-booking-form {
   margin-top: 16px;
   display: flex;
+  flex-grow: 1;
   align-items: center;
   justify-content: center;
   background-color: #e8e8e8;
   width: inherit;
   border-radius: 0 0 16px 16px;
   border: 0;
-  flex-grow: 1
+  .btn-home-browse {
+    font-family: 'Scheherazade New', serif;
+  }
 }
