@@ -9,7 +9,7 @@
   <div class="cards-container">
     <% @flats.each do |flat| %>
       <div class="our-card rounded mb-4 p-3 shadow-main">
-        <h4><%= flat.name %></h4>
+        <h4 class="fw-bold"><%= flat.name %></h4>
         <p><%= flat.description %></p>
         <p>Daily rate: <%= flat.price_per_day %></p>
         <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid rounded" %>
