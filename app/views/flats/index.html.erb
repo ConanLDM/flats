@@ -1,5 +1,19 @@
+<div class="card m-3 p-3 bounrded bg-dark text-light">
+  <p>[NEED TO HAVE FLEX - 1 tall row, 3 columns on medium screen, down to 2, then 1 for sm]</p>
+  <p>[each row contains a column with margins]</p>
+  <p>[middle column has additional margin so the cards are not aligned]</p>
+<%= link_to "See this example", "https://july.fund/?ref=onepagelove", class: "fs-2" %>
+</div>
 
-<% @flats.each do |flat| %>
-<%= flat.name %>
-
-<% end %>
+<div class="container">
+  <div class="cards-container">
+    <% @flats.each do |flat| %>
+      <div class="our-card rounded mb-4 p-3 shadow-main">
+        <h4><%= flat.name %></h4>
+        <p><%= flat.description %></p>
+        <p>Daily rate: <%= flat.price_per_day %></p>
+        <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid rounded" %>
+      </div>
+    <% end %>
+  </div>
+</div>
