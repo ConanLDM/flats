@@ -1,7 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <div class="d-flex flex-row align-items-center">
+        <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <h3 class="my-0 ms-2 p-0">Desk Guru</h3>
+      </div>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +30,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Become a host", new_user_registration_path, class: "nav-link fw-bold" %>
+            <%= link_to "Host your space", new_flat_path, class: "nav-link fw-bold" %>
           </li>
           <li class="nav-item">
             <%= link_to "Join us", new_user_registration_path, class: "nav-link fw-bold" %>
