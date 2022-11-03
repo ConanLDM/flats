@@ -6,7 +6,9 @@ class FlatsController < ApplicationController
     @flats = Flat.all
   end
 
-  def show; end
+  def show
+    @booking = Booking.new
+  end
 
   def new
     @flat = Flat.new
