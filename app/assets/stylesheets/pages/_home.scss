@@ -49,18 +49,20 @@ body {
   border-radius: 16px !important;
   padding-left: 2%;
   padding-right: 2%;
+  text-align: center;
   h1 {
-    font-size: 5rem;
+    font-size: 6rem;
     padding: 4%;
+    font-family: 'Scheherazade New', serif;
   }
   span.text-today {
     text-decoration: underline;
-    font-weight: bold;
-    text-underline-position: below;
+    text-underline-position: under;
   }
 }
 
 .welcome-booking-form {
+  margin-top: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
