@@ -16,3 +16,11 @@
     </div>
   </div>
 </div>
+
+<hr>
+<h1>New booking</h1>
+<%= simple_form_for [@flat, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
