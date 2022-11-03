@@ -1,0 +1,14 @@
+<div class="container d-flex">
+  <div class="mx-auto mt-5 w-50 p-4 bg-white rounded shadow-main">
+    <h2 class="mb-4"><%= "#{params[:action].capitalize} desk" %></h2>
+
+    <%= simple_form_for(@flat) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :description %>
+      <%= f.input :price_per_day %>
+      <%= f.input :image_url %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
