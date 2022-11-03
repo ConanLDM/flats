@@ -13,14 +13,15 @@
         <p>Let's add mapify here so we can see where they are</p>
       </div>
       <%= link_to "Back", flats_path, class: "btn btn-sm btn-outline-dark mt-2" %>
+
+      <h1>New booking</h1>
+      <%= simple_form_for [@flat, @booking] do |f| %>
+        <%= f.input :start_date, html5: true %>
+        <%= f.input :end_date, html5: true %>
+        <%= f.submit "Book!", class: "btn btn btn-success" %>
+      <% end %>
     </div>
   </div>
-</div>
 
-<hr>
-<h1>New booking</h1>
-<%= simple_form_for [@flat, @booking] do |f| %>
-  <%= f.input :start_date, html5: true %>
-  <%= f.input :end_date, html5: true %>
-  <%= f.submit "Book!", class: "btn btn btn-success" %>
-<% end %>
+
+</div>

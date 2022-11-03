@@ -7,9 +7,14 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.restaurant = @flat
-    @booking.save
-    # redirect_to WHERE
+    @booking.user_id = 1
+    @booking.flat = @flat
+    if @booking.save
+      redirect_to booking_path(@booking)
+      raise
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
