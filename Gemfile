@@ -54,7 +54,7 @@ gem "devise"
 gem "autoprefixer-rails"
 
 # Use font awesome tags
-gem "font-awesome-sass", "~> 6.1"
+gem "font-awesome-sass", "~> 6.2.0"
 
 # Simple forms
 gem "simple_form", github: "heartcombo/simple_form"
