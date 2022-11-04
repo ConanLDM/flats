@@ -1,16 +1,43 @@
+<% sd = @booking.start_date %>
+<% ed = @booking.end_date %>
+
 <div class="container mt-2">
-  <div class="container w-50 mt-3 p-3 bg-white shadow-main rounded">
+  <div class="container w-50 mt-3 p-3 pb-1 bg-white shadow-main rounded">
     <div class="text-center">
       <%= icon('fa-solid', 'calendar-check', class:"fa-7x, fa-shake fs-1 text-center mb-2")%>
       <h2 class="fw-bold">Booking confirmed!</h2>
-      <p class="my-3 text-gray">Just to let you know that everything went through. You'll hear from your host shortly.</p>
+      <p class="my-3 text-gray">Just to let you know that everything went through.<br>You'll hear from your host shortly.</p>
     </div>
-      <h5 class="mt-4">You've got your own desk in <%= @booking.flat.address.gsub(/^.*, /, '') %></h5>
-      <div class="bg-trans-gray border border-1 rounded">
-        <%= image_tag @booking.flat.image_url, alt: @booking.flat.name, class: "img-fluid rounded " %>
-        <p class="opacity-100">Booking start date: <%= @booking.start_date %></p>
-        <p class="opacity-100">Booking end date: <%= @booking.end_date %></p>
+    <h5 class="mt-4">You've got your own desk in <%= @booking.flat.address.gsub(/^.*, /, '') %> for [x] days</h5>
+    <div class="d-flex flex-column">
+      <%= image_tag @booking.flat.image_url, alt: @booking.flat.name, class: "mb-2 img-fluid rounded" %>
+
+      <div class="d-flex flex-row px-2 py-0">
+        <p class="col mb-0 text-start fs-6"><span class="fw-bold"><%= sd.strftime('%A') %></span><br>
+        <%= sd.strftime('%w %B %Y') %></p>
+        <div class="col flex-shrink-1"></div>
+        <p class="col mb-0 text-end fs-6"><span class="fw-bold"><%= ed.strftime('%A') %></span><br>
+        <%= ed.strftime('%w %B %Y') %></p>
       </div>
-    <p class="text-decoration-italics fs-7 text-gray">This has been emailed to you at <u><%= @booking.user.email %></u></p>
+
+      <hr class="my-2 bg-primary border border-primary border-1 rounded">
+      <div class="d-flex flex-row mb-0 px-2 py-0 align-items-center">
+        <p class="mb-0"><span class="fs-6 fw-bold">Address</span><br>
+        <span class="fs-6"><%= @booking.flat.address %></span></p>
+        <div class="flex-grow-1"></div>
+        <p class="m-0 btn btn-sm btn-primary">Navigate</p>
+      </div>
+
+      <hr class="my-2 bg-primary border border-primary border-1 rounded">
+      <div class="d-flex flex-row mb-0 px-2 py-0 align-items-center">
+        <p class="mb-0"><span class="fs-6 fw-bold">Price</span><br>
+        <span class="fs-6">£<%= '%.2f' % (@booking.flat.price_per_day * (sd - ed)) %></span></p>
+        <div class="flex-grow-1"></div>
+        <p class="m-0 btn btn-sm btn-outline-primary fw-bold">Amend</p>
+      </div>
+
+      <hr class="my-2 bg-primary border border-primary border-1 rounded">
+    </div>
+    <p class="mb-1 text-gray text-center">This has been emailed to you at <u><%= @booking.user.email %></u></p>
   </div>
 </div>
