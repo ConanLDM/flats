@@ -1,9 +1,16 @@
 <div class="container mt-2">
-  <div class="container mt-3 p-3 bg-white shadow-main rounded">
-    <h2>Booking confirmation:</h2>
-    <div class="d-flex flex-column">
-      <p class="text-decoration-italics">This has been emailed to you at <i><%= @booking.user.email %></i></p>
-      <p><%= @booking.flat.name %></p>
+  <div class="container w-50 mt-3 p-3 bg-white shadow-main rounded">
+    <div class="text-center">
+      <%= icon('fa-solid', 'calendar-check', class:"fa-7x, fa-shake fs-1 text-center mb-2")%>
+      <h2 class="fw-bold">Booking confirmed!</h2>
+      <p class="my-3 text-gray">Just to let you know that everything went through. You'll hear from your host shortly.</p>
     </div>
+      <h5 class="mt-4">You've got your own desk in <%= @booking.flat.address.gsub(/^.*, /, '') %></h5>
+      <div class="bg-trans-gray border border-1 rounded">
+        <%= image_tag @booking.flat.image_url, alt: @booking.flat.name, class: "img-fluid rounded " %>
+        <p class="opacity-100">Booking start date: <%= @booking.start_date %></p>
+        <p class="opacity-100">Booking end date: <%= @booking.end_date %></p>
+      </div>
+    <p class="text-decoration-italics fs-7 text-gray">This has been emailed to you at <u><%= @booking.user.email %></u></p>
   </div>
 </div>
