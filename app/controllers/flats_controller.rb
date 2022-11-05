@@ -9,16 +9,18 @@ class FlatsController < ApplicationController
   def show
     @booking = Booking.new
        # geocode & mapbox: needs a guard clause!
-       @markers =
+       @markers = [
        {
          lat: @flat.geocode.first,
          lng: @flat.geocode.last,
          info_window: render_to_string(partial: "info_window", locals: {flat: @flat})
-       }
+       }]
   end
+
   def new
     @flat = current_user.flats.build
   end
+
   def create
     @flat = current_user.flats.build(flat_params)
     @flat.user_id = 1
