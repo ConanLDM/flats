@@ -25,7 +25,7 @@ export default class extends Controller {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popu //check thuis!!!!
+        .setPopup(popup) //check thuis!!!!
         .addTo(this.map)
     });
     this.#fitMapToMarkers()
