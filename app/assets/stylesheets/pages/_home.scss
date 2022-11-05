@@ -72,7 +72,8 @@ body {
   width: inherit;
   border-radius: 0 0 16px 16px;
   border: 0;
-  .btn-home-browse {
-    font-family: 'Scheherazade New', serif;
+  .btn-home-browse:hover {
+    font-weight: bold;
+    color: $blue;
   }
 }

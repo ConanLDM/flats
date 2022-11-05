@@ -50,7 +50,7 @@ puts "Morley's desk created"
 Flat.create(
   name: "Escape to a cabin in the woods",
   description: "This peaceful cabin away from anyone who can hear you scream is a great place to de-stress and recentre.",
-  address: "Thorpe Forest, Shadwell, Thetford",
+  address: "Cage Ln, Thetford",
   image_url: "cabin.jpg",
   price_per_day: 13,
   user_id: 1
@@ -60,7 +60,7 @@ puts "Cabin desk created"
 Flat.create(
   name: "City slicker corner desk",
   description: "Don't just look out onto the world, look down on the little people from this exclusive, elite suite.",
-  address: "1666 Nightmare Towers, New York",
+  address: "725 5th Ave, New York, NY",
   image_url: "city.jpg",
   price_per_day: 500,
   user_id: 1
@@ -80,7 +80,7 @@ puts "Garden desk created"
 Flat.create(
   name: "Lakeview Power Office",
   description: "Look out over this serene and tranquil lake as you hire, fire and power play.",
-  address: "1 Big House, Portinscale, Keswick",
+  address: "Crow Park Rd, Keswick",
   image_url: "hero.jpg",
   price_per_day: 120,
   user_id: 1
@@ -110,7 +110,7 @@ puts "River desk created"
 Flat.create(
   name: "Boaty McBoat Desk",
   description: "Overgrown child with more money than sense? We have the perfect workday for you. Come and work in a damp room with no windows!",
-  address: "Pier Head, Mann Island, Liverpool",
+  address: "32 Gower St, Liverpool",
   image_url: "boat.jpg",
   price_per_day: 75,
   user_id: 1
@@ -120,7 +120,7 @@ puts "Boat desk created"
 Flat.create(
   name: "ZzzzzZennnn",
   description: "Big on Minimalism? Doing mininaml work, paying your staff the bare minimum. We can tell you'll emjoy getting away from the riff-raff in this beautiful hideaway.",
-  address: "Pier Head, Mann Island, Liverpool",
+  address: "Binley Rd, Binley, Coventry",
   image_url: "zen.jpg",
   price_per_day: 175,
   user_id: 1
