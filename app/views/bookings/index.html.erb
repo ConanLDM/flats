@@ -1,0 +1,28 @@
+
+<div class="container mt-2">
+  <div class="container w-80 mt-3 p-4 pb-1 bg-white">
+    <div class="text-center">
+      <%= icon('fa-solid', 'calendar-days', class:"fa-7x, fa-shake fs-1 text-center mb-2 text-primary")%>
+    </div>
+    <h2 class="fw-bold">Your upcoming bookings</h2>
+    <p class="my-3">You've got <B><%= @bookings.size %></b> fun day in your diary</p>
+    <% @bookings.each do |booking| %>
+      <div class="mb-2">
+        <h4 class="fw-bold mb-0"><%= link_to booking.flat.address.gsub(/^.*, /, ''), booking_path(booking) %></h4>
+        <p class="mt-0 fs-5"><%= booking.start_date.strftime('%e %b') %> to <%= booking.end_date.strftime('%e %b') %></p>
+        <div class="d-flex d-row justify-content-between align-items-center p-3 shadow-main">
+          <% unless booking.flat.image_url.nil? %>
+            <%= image_tag booking.flat.image_url, alt: booking.flat.name, class: "w-25 img-fluid rounded" %>
+          <% end %>
+          <div class="">
+            <%= booking.flat.name %>
+          </div>
+          <div class="mt-2 flex-grow-1 flex-end align-self-start">
+            <h4 class="fw-bold fs-5 me-4 text-end">£<%= booking.flat.price_per_day.floor %></h4>
+          </div>
+          <p class="btn btn-sm bg-white align-self-start"><%= icon('fa-solid', 'pen-to-square', class:"fa-7x, fa-shake fs-4 text-center text-primary mb-2")%></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
