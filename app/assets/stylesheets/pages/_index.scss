@@ -1,15 +1,26 @@
 @import "home";
 
 .cards-container {
+  padding-top: 25px;
+  padding-bottom: 25px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   // grid-template-columns: repeat(auto-fill, 250px);
   // https://getflywheel.com/layout/card-layout-css-grid-layout-how-to/
   grid-auto-rows: auto;
   grid-gap: 1rem;
+  font-family: sans-serif;
+
+  a {
+    color: rgba(67, 62, 60, 0.759);
+    text-decoration: none;
+  }
+
 }
 .card-ours {
+
   background-color: #fff;
   border-radius: 16px;
   padding: .5rem;
+
 }
