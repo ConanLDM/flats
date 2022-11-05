@@ -4,7 +4,7 @@
 <div class="container mt-2">
   <div class="container w-50 mt-3 p-3 pb-1 bg-white shadow-main rounded">
     <div class="text-center">
-      <%= icon('fa-solid', 'calendar-check', class:"fa-7x, fa-shake fs-1 text-center mb-2")%>
+      <%= icon('fa-solid', 'calendar-check', class:"fa-7x, fa-shake fs-1 text-center mb-2 text-primary")%>
       <h2 class="fw-bold">Booking confirmed!</h2>
       <p class="my-3 text-gray">Just to let you know that everything went through.<br>You'll hear from your host shortly.</p>
     </div>
@@ -31,6 +31,7 @@
       <hr class="my-2 bg-primary border border-primary border-1 rounded">
       <div class="d-flex flex-row mb-0 px-2 py-0 align-items-center">
         <p class="mb-0"><span class="fs-6 fw-bold">Price</span><br>
+        <%# THIS NUMBER DOESN'T MAKE SENSE: NEEDS SOME PROPER DATE INTELLEGENCE %>
         <span class="fs-6">£<%= '%.2f' % (@booking.flat.price_per_day * (sd - ed)) %></span></p>
         <div class="flex-grow-1"></div>
         <p class="m-0 btn btn-sm btn-outline-primary fw-bold">Amend</p>

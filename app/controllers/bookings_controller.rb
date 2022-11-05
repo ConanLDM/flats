@@ -22,6 +22,11 @@ class BookingsController < ApplicationController
   def show
   end
 
+  def index
+    # currently only one user
+    @bookings = Booking.all
+  end
+
   private
 
   def set_flat
