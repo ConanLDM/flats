@@ -1,0 +1,157 @@
+[1mdiff --git a/Gemfile b/Gemfile[m
+[1mindex 22e5612..d1cc518 100644[m
+[1m--- a/Gemfile[m
+[1m+++ b/Gemfile[m
+[36m@@ -65,6 +65,8 @@[m [mgem "dotenv-rails", groups: [:development, :test][m
+ # For image hosting[m
+ gem "cloudinary"[m
+ [m
+[32m+[m[32mgem "geocoder"[m
+[32m+[m
+ group :development, :test do[m
+   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem[m
+   gem "debug", platforms: %i[ mri mingw x64_mingw ][m
+[1mdiff --git a/Gemfile.lock b/Gemfile.lock[m
+[1mindex 9d8cb77..bb18fbd 100644[m
+[1m--- a/Gemfile.lock[m
+[1m+++ b/Gemfile.lock[m
+[36m@@ -119,6 +119,7 @@[m [mGEM[m
+     ffi (1.15.5)[m
+     font-awesome-sass (6.2.0)[m
+       sassc (~> 2.0)[m
+[32m+[m[32m    geocoder (1.8.1)[m
+     globalid (1.0.0)[m
+       activesupport (>= 5.0)[m
+     http-accept (1.7.0)[m
+[36m@@ -274,6 +275,7 @@[m [mDEPENDENCIES[m
+   devise[m
+   dotenv-rails[m
+   font-awesome-sass (~> 6.2.0)[m
+[32m+[m[32m  geocoder[m
+   jbuilder[m
+   jsbundling-rails[m
+   pg (~> 1.1)[m
+[1mdiff --git a/app/views/flats/show.html.erb b/app/views/flats/show.html.erb[m
+[1mindex a0220f7..f71f0f1 100644[m
+[1m--- a/app/views/flats/show.html.erb[m
+[1m+++ b/app/views/flats/show.html.erb[m
+[36m@@ -1,27 +1,57 @@[m
+[31m-<div class="container mt-2">[m
+[31m-  <div class="container mt-3 p-3 bg-white shadow-main rounded">[m
+[31m-    <h2><%= @flat.name %></h2>[m
+[31m-    <div class="d-flex flex-column">[m
+[31m-      <p><%= @flat.address %></p>[m
+[31m-      <% unless @flat.image_url.nil? %>[m
+[31m-        <%= image_tag @flat.image_url, alt: @flat.name, class: "w-50 img-fluid rounded" %>[m
+[31m-      <% end %>[m
+[31m-      <p>Desc: <%= @flat.description %></p>[m
+[31m-      <p class="btn btn-lg btn-success fw-bold">£<%= @flat.price_per_day.floor %></p>[m
+[31m-      <p>⬆️ make this a link</p>[m
+[31m-      <div class="d-flex justify-content-center align-items-center bg-info">[m
+[31m-        <p>Let's add mapify here so we can see where they are</p>[m
+[32m+[m[32m<%# ALL HIDDEN IN HERE: %>[m
+[32m+[m[32m<div class="d-none">[m
+[32m+[m[32m  <div class="container mt-2">[m
+[32m+[m[32m    <div class="container mt-3 p-3 bg-white shadow-main rounded">[m
+[32m+[m[32m      <h2><%= @flat.name %></h2>[m
+[32m+[m[32m      <div class="d-flex flex-column">[m
+[32m+[m[32m        <p><%= @flat.address %></p>[m
+[32m+[m[32m        <% unless @flat.image_url.nil? %>[m
+[32m+[m[32m          <%= image_tag @flat.image_url, alt: @flat.name, class: "w-50 img-fluid rounded" %>[m
+[32m+[m[32m        <% end %>[m
+[32m+[m[32m        <p>Desc: <%= @flat.description %></p>[m
+[32m+[m[32m        <p class="btn btn-lg btn-success fw-bold">£<%= @flat.price_per_day.floor %></p>[m
+[32m+[m[32m        <p>⬆️ make this a link</p>[m
+[32m+[m[32m        <div class="d-flex justify-content-center align-items-center bg-info">[m
+[32m+[m[32m          <p>Let's add mapify here so we can see where they are</p>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <%= link_to "Back", flats_path, class: "btn btn-sm btn-outline-dark mt-2" %>[m
+[32m+[m
+[32m+[m[32m        <h1>New booking</h1>[m
+[32m+[m[32m        <%= simple_form_for [@flat, @booking] do |f| %>[m
+[32m+[m[32m          <%= f.input :start_date, html5: true %>[m
+[32m+[m[32m          <%= f.input :end_date, html5: true %>[m
+[32m+[m[32m          <%= f.submit "Book!", class: "btn btn btn-success" %>[m
+[32m+[m[32m        <% end %>[m
+       </div>[m
+[31m-      <%= link_to "Back", flats_path, class: "btn btn-sm btn-outline-dark mt-2" %>[m
+[31m-[m
+[31m-      <h1>New booking</h1>[m
+[31m-      <%= simple_form_for [@flat, @booking] do |f| %>[m
+[31m-        <%= f.input :start_date, html5: true %>[m
+[31m-        <%= f.input :end_date, html5: true %>[m
+[31m-        <%= f.submit "Book!", class: "btn btn btn-success" %>[m
+[31m-      <% end %>[m
+     </div>[m
+   </div>[m
+[32m+[m[32m</div>[m
+ [m
+[32m+[m[32m<h4><%= @flat.name %></h4>[m
+ [m
+[31m-</div>[m
+[32m+[m[32m<p><%= @flat.address %></p>[m
+[32m+[m
+[32m+[m[32m<%= Geocoder.search(@flat.address).first.coordinates %>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m<%#[m
+[32m+[m[32m    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>[m
+[32m+[m
+[32m+[m[32m    <link rel="stylesheet" type="text/css" href="./style.css" />[m
+[32m+[m[32m    <script type="module" src="./index.js"></script>[m
+[32m+[m[32m  </head>[m
+[32m+[m[32m  <>[m
+[32m+[m[32m    <h3>My Google Maps Demo</h3>[m
+[32m+[m[32m    <!--The div element for the map -->[m
+[32m+[m[32m    <div id="map"></div>[m
+[32m+[m
+[32m+[m[32m    <!--[m
+[32m+[m[32m     The `defer` attribute causes the callback to execute after the full HTML[m
+[32m+[m[32m     document has been parsed. For non-blocking uses, avoiding race conditions,[m
+[32m+[m[32m     and consistent behavior across browsers, consider loading using Promises[m
+[32m+[m[32m     with https://www.npmjs.com/package/@googlemaps/js-api-loader.[m
+[32m+[m[32m    -->[m
+[32m+[m[32m    <script[m
+[32m+[m[32m      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"[m
+[32m+[m[32m      defer[m
+[32m+[m[32m    ></script> %>[m
+[1mdiff --git a/db/seeds.rb b/db/seeds.rb[m
+[1mindex 8e6994f..2591fa6 100644[m
+[1m--- a/db/seeds.rb[m
+[1m+++ b/db/seeds.rb[m
+[36m@@ -10,7 +10,7 @@[m [mputs "Dummy user created"[m
+ Flat.create([m
+   name: "Desk hanging over a volcano",[m
+   description: "Quite warm, good for cooking - hard to focus with lava in your face but overall decent.",[m
+[31m-  address: "1 Volvano Hole, Mount Vesuvius",[m
+[32m+[m[32m  address: "Mount Vesuvius",[m
+   image_url: "volcano.jpg",[m
+   price_per_day: 45,[m
+   user_id: 1[m
+[36m@@ -20,7 +20,7 @@[m [mputs "Volcano desk created"[m
+ Flat.create([m
+   name: "Home office in a TREE HOUSE",[m
+   description: "Live out your childhood dream whilst doing what make adult life suck - working!",[m
+[31m-  address: "123 Grassy Gardens, Lintendon",[m
+[32m+[m[32m  address: "West Lexham, Norfolk",[m
+   image_url: "treehouse.jpg",[m
+   price_per_day: 30,[m
+   user_id: 1[m
+[36m@@ -40,7 +40,7 @@[m [mputs "Pub desk created"[m
+ Flat.create([m
+   name: "Sit down at Morley's",[m
+   description: "Can't heat your own place anymore? Come and see how long our chicken sits there before the evening rush.",[m
+[31m-  address: "Morley's Chicken, 68A Westow Hill, London",[m
+[32m+[m[32m  address: "68 Westow Hill, London",[m
+   image_url: "morleys.jpg",[m
+   price_per_day: 5,[m
+   user_id: 1[m
+[36m@@ -50,7 +50,7 @@[m [mputs "Morley's desk created"[m
+ Flat.create([m
+   name: "Escape to a cabin in the woods",[m
+   description: "This peaceful cabin away from anyone who can hear you scream is a great place to de-stress and recentre.",[m
+[31m-  address: "Linda's Shed, Thorpe Forest, Shadwell, Thetford",[m
+[32m+[m[32m  address: "Thorpe Forest, Shadwell, Thetford",[m
+   image_url: "cabin.jpg",[m
+   price_per_day: 13,[m
+   user_id: 1[m

@@ -1,4 +1,6 @@
-<div class="card m-3 p-3 bounrded bg-dark text-light">
+<div class="card m-3 p-3 bounrded bg-dark text-light d-none">
+  <%# HIDDEN FOLDER %>
+
   <h3>To do:</h3>
   <ul>
     <li>Remove the spacing between cards</li>
@@ -9,6 +11,14 @@
   </ul>
 <%= link_to "See this example", "https://july.fund/?ref=onepagelove", class: "text-info fs-2" %>
 </div>
+
+  <%# this is for authenticated users - DEVISE %>
+ <%# link_to 'Show', pin%>
+ <%# if flat.user == current_user%>
+    <%# = link_to 'Edit', edit_flat_path(flat)  %>
+ <%# link_to 'Destroy', pin, method: :delete, data: {confirm: 'Are you sure?' }  %>
+
+
 
 <div class="container">
   <div class="cards-container">

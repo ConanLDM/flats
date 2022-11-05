@@ -10,7 +10,7 @@ puts "Dummy user created"
 Flat.create(
   name: "Desk hanging over a volcano",
   description: "Quite warm, good for cooking - hard to focus with lava in your face but overall decent.",
-  address: "1 Volvano Hole, Mount Vesuvius",
+  address: "Mount Vesuvius",
   image_url: "volcano.jpg",
   price_per_day: 45,
   user_id: 1
@@ -20,7 +20,7 @@ puts "Volcano desk created"
 Flat.create(
   name: "Home office in a TREE HOUSE",
   description: "Live out your childhood dream whilst doing what make adult life suck - working!",
-  address: "123 Grassy Gardens, Lintendon",
+  address: "West Lexham, Norfolk",
   image_url: "treehouse.jpg",
   price_per_day: 30,
   user_id: 1
@@ -40,7 +40,7 @@ puts "Pub desk created"
 Flat.create(
   name: "Sit down at Morley's",
   description: "Can't heat your own place anymore? Come and see how long our chicken sits there before the evening rush.",
-  address: "Morley's Chicken, 68A Westow Hill, London",
+  address: "68 Westow Hill, London",
   image_url: "morleys.jpg",
   price_per_day: 5,
   user_id: 1
@@ -50,7 +50,7 @@ puts "Morley's desk created"
 Flat.create(
   name: "Escape to a cabin in the woods",
   description: "This peaceful cabin away from anyone who can hear you scream is a great place to de-stress and recentre.",
-  address: "Linda's Shed, Thorpe Forest, Shadwell, Thetford",
+  address: "Thorpe Forest, Shadwell, Thetford",
   image_url: "cabin.jpg",
   price_per_day: 13,
   user_id: 1
