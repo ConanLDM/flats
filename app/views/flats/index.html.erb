@@ -29,7 +29,29 @@
           <p><%= flat.description %></p>
           <p>Daily rate: £<%= flat.price_per_day.floor %></p>
           <% unless flat.image_url.nil? %>
-            <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid rounded" %>
+
+
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid rounded" %>
+                    </div>
+                    <div class="carousel-item">
+                      <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid rounded" %>
+                    </div>
+                    <div class="carousel-item">
+                      <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid rounded" %>
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
           <% end %>
         </div>
       <% end %>
