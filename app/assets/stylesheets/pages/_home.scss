@@ -1,6 +1,7 @@
 body {
-  background-color: #FEF1E6;
+  background-color: whitesmoke;
 }
+
 
 .back {
   justify-content: end;
@@ -8,6 +9,7 @@ body {
   background-color: white;
   width: 40%;
   height: 40%;
+
   .hero {
     background-image: asset-url("hero.jpg");
     background-size: cover;
@@ -20,6 +22,7 @@ body {
     border-radius: 16px !important;
   }
 }
+
 .front {
   justify-content: start;
   position: absolute;
@@ -51,11 +54,13 @@ body {
   padding-right: 2%;
   text-align: center;
   flex-grow: 1;
+
   h1 {
     font-size: 6rem;
     padding: 4%;
     font-family: 'Scheherazade New', serif;
   }
+
   span.text-today {
     text-decoration: underline;
     text-underline-position: under;
@@ -72,6 +77,7 @@ body {
   width: inherit;
   border-radius: 0 0 16px 16px;
   border: 0;
+
   .btn-home-browse:hover {
     font-weight: bold;
     color: $blue;
