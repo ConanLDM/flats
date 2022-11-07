@@ -21,7 +21,7 @@
         <p>Made active <%= @flat.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
       </div>
     </div>
-    <div style="width: 100vh; height: 800px;"
+    <div style="width: 100vh; height: 500px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
