@@ -11,6 +11,8 @@
   // grid-gap: 1rem font-family sans-serif;
   column-gap: 20px;
   row-gap: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
 
 
 
@@ -23,11 +25,9 @@
     flex-grow: 0;
     background-color: rgba(193, 193, 196, 0.1);
     border-radius: 10%;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    padding-bottom: 0;
   }
-
-
-
 
 }
 
@@ -37,8 +37,9 @@
   border-radius: 20px;
   padding: .5rem;
 
+
 }
 
 .card-text {
-  margin-bottom: 0;
+  padding-bottom: 0px;
 }
