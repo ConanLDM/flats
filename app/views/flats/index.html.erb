@@ -24,12 +24,9 @@
   <div class="cards-container">
     <% @flats.each do |flat| %>
       <%= link_to flat_path(flat) do %>
-        <div class="our-card rounded p-3 ">
+        <div class="our-card rounded p-3">
           <h4 class="fw-bold"><%= flat.name %></h4>
-
           <% unless flat.image_url.nil? %>
-
-
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active ">
@@ -52,9 +49,9 @@
                   </button>
                 </div>
                 <div class="card-text ">
-                <p><%= flat.description %></p>
-                <p><strong>Daily rate</strong>: £<%= flat.price_per_day.floor %></p>
-              </div>
+                  <p><%= flat.description %></p>
+                  <p><strong>Daily rate</strong>: £<%= flat.price_per_day.floor %></p>
+                </div>
           <% end %>
         </div>
       <% end %>

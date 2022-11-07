@@ -21,11 +21,11 @@
     text-decoration: none;
     display: flex;
     flex-grow: 0;
-    background-color: rgba(126, 124, 148, 0.1);
+    background-color: rgba(193, 193, 196, 0.1);
     border-radius: 10%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   }
+
 
 
 
@@ -37,4 +37,8 @@
   border-radius: 20px;
   padding: .5rem;
 
+}
+
+.card-text {
+  margin-bottom: 0;
 }
