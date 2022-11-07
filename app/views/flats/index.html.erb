@@ -24,16 +24,15 @@
   <div class="cards-container">
     <% @flats.each do |flat| %>
       <%= link_to flat_path(flat) do %>
-        <div class="our-card rounded p-3 shadow-main">
+        <div class="our-card rounded p-3 ">
           <h4 class="fw-bold"><%= flat.name %></h4>
-          <p><%= flat.description %></p>
-          <p>Daily rate: £<%= flat.price_per_day.floor %></p>
+
           <% unless flat.image_url.nil? %>
 
 
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                   <div class="carousel-inner">
-                    <div class="carousel-item active">
+                    <div class="carousel-item active ">
                       <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid rounded" %>
                     </div>
                     <div class="carousel-item">
@@ -52,6 +51,10 @@
                     <span class="visually-hidden">Next</span>
                   </button>
                 </div>
+                <div class="card-text ">
+                <p><%= flat.description %></p>
+                <p><strong>Daily rate</strong>: £<%= flat.price_per_day.floor %></p>
+              </div>
           <% end %>
         </div>
       <% end %>
