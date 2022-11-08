@@ -5,8 +5,8 @@
 <div class="home-card front">
   <div class="card-welcome shadow-main">
     <h1>Work somewhere inspiring <span class="text-today">today</span></h1>
-    <div class="card welcome-booking-form">
-      <%= link_to "See where you could spend a day", flats_path, class: "btn-home-browse fs-1 text-decoration-none text-dark" %>
+    <div class="card welcome-search-box px-5">
+      <%= render "flats/search_bar" %>
     </div>
   </div>
 </div>

@@ -1,12 +1,20 @@
+<% bookings_count = @bookings.size %>
 
 <div class="container mt-2 d-flex align-items-center">
   <div class="container w-80 mt-3 p-4 pb-1 bg-white" style="min-height:80vh;">
     <div class="text-center">
-      <%= icon('fa-solid', 'calendar-days', class:"fa-7x, fa-shake fs-1 text-center mb-2 text-primary")%>
+      <%= icon('fa-solid', 'calendar-days', class:"fa-7x, fa-shake fs-1 text-center mb-3 text-primary")%>
+      <h2 class="fw-bold">Your upcoming bookings</h2>
+      <p class="my-3">You've got <B><%= bookings_count %></b> fun day<%= 's' if bookings_count != 1 %> in your diary</p>
+      <% if bookings_count.zero? %>
+        <div class="mt-5 flex-column flex-grow-1">
+          <p class="fs-1"><%= icon('fa-regular', 'face-frown-open', class:"pt-5 fs-lg text-dark")%></p>
+          <p class=" mb-3 fs-4 fw-bold">Not much going on for you, let's get booking shall we?</p>
+          <%= link_to "Get some inspiration", flats_path, class: "w-25 btn btn-lg btn-outline-dark" %>
+        </div>
+      </div>
+      <% end %>
     </div>
-    <h2 class="fw-bold">Your upcoming bookings</h2>
-    <% bookings_count = @bookings.size %>
-    <p class="my-3">You've got <B><%= bookings_count %></b> fun day<%= 's' if bookings_count != 1 %> in your diary</p>
     <% @bookings.each do |booking| %>
       <div class="mb-2">
         <h4 class="fw-bold mb-0"><%= link_to booking.flat.address.gsub(/^.*, /, ''), booking_path(booking), class: "text-decoration-none text-black" %></h4>
@@ -22,7 +30,7 @@
           <div class="mt-2 flex-grow-1 flex-end align-self-start">
             <h4 class="fw-bold fs-5 me-4 text-end">£<%= booking.flat.price_per_day.floor %></h4>
           </div>
-          <p class="btn btn-sm bg-white align-self-start"><%= icon('fa-solid', 'pen-to-square', class:"fa-7x, fa-shake fs-4 text-center text-primary mb-2")%></p>
+          <p class="btn btn-sm bg-white align-self-start"><%= icon('fa-solid', 'pen-to-square', class:"fa-7x, fs-4 text-center text-primary mb-2")%></p>
         </div>
       </div>
     <% end %>

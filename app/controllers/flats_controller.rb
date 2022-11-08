@@ -5,17 +5,21 @@ class FlatsController < ApplicationController
   respond_to :html
 
   def index
-    @flats = Flat.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query OR address ILIKE :query"
+      @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @flats = Flat.all
+    end
   end
 
   def show
     @booking = Booking.new
-       # geocode & mapbox: needs a guard clause!
     @markers = [
       {
         lat: @flat.geocode.first,
         lng: @flat.geocode.last,
-        info_window: render_to_string(partial: "info_window", locals: {flat: @flat})
+        info_window: render_to_string(partial: "info_window", locals: { flat: @flat })
        }]
   end
 
