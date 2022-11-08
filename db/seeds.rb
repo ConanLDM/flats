@@ -1,7 +1,6 @@
 puts "Destroying records"
 Booking.destroy_all
 Flat.destroy_all
-
 User.create(
   email: "email@email.com",
   password: "password"
@@ -17,7 +16,6 @@ Flat.create(
   user_id: 1
 )
 puts "Volcano desk created"
-
 Flat.create(
   name: "Home office in a TREE HOUSE",
   description: "Live out your childhood dream whilst doing what make adult life suck - working!
@@ -28,7 +26,6 @@ Flat.create(
   user_id: 1
 )
 puts "Treehouse desk created"
-
 Flat.create(
   name: "Work from a pub today",
   description: "Pretend it's about getting a change of scenery and let us ply you with booze all day. It's a win-win!
@@ -39,7 +36,6 @@ Flat.create(
   user_id: 1
 )
 puts "Pub desk created"
-
 Flat.create(
   name: "Sit down at Morley's",
   description: "Can't heat your own place anymore? Come and see how long our chicken sits there before the evening rush.
@@ -50,7 +46,6 @@ Flat.create(
   user_id: 1
 )
 puts "Morley's desk created"
-
 Flat.create(
   name: "Escape to a cabin in the woods",
   description: "This peaceful cabin away from anyone who can hear you scream is a great place to de-stress and recentre.
@@ -61,7 +56,6 @@ Flat.create(
   user_id: 1
 )
 puts "Cabin desk created"
-
 Flat.create(
   name: "City slicker corner desk",
   description: "Don't just look out onto the world, look down on the little people from this exclusive, elite suite.
@@ -72,7 +66,6 @@ Flat.create(
   user_id: 1
 )
 puts "City desk created"
-
 Flat.create(
   name: "Mary's Garden",
   description: "Find out how Mary's Garden grows in this idylic country yard.
@@ -83,7 +76,6 @@ Flat.create(
   user_id: 1
 )
 puts "Garden desk created"
-
 Flat.create(
   name: "Lakeview Power Office",
   description: "Look out over this serene and tranquil lake as you hire, fire and power play.
@@ -94,7 +86,6 @@ Flat.create(
   user_id: 1
 )
 puts "Lake desk created"
-
 Flat.create(
   name: "WFG: Work from a Gallery",
   description: "Find true inspiration. They say we don't look at art for long enough,
@@ -105,7 +96,6 @@ Flat.create(
   user_id: 1
 )
 puts "Kandinksy desk created"
-
 Flat.create(
   name: "Let's do things more upstream",
   description: "Confuse your colleagues with the sounds of splashing. Sit in front a river and read emails all day.
@@ -116,7 +106,6 @@ Flat.create(
   user_id: 1
 )
 puts "River desk created"
-
 Flat.create(
   name: "Boaty McBoat Desk",
   description: "Overgrown child with more money than sense? We have the perfect workday for you.
@@ -128,34 +117,22 @@ Flat.create(
   user_id: 1
 )
 puts "Boat desk created"
-
 Flat.create(
-  name: "Highbury Apartments Desk",
-  description: "Arsenal Manager Arsène Wenger, together with Club Directors and players from Arsenal’s past and present,
-  made a memory-filled return to Highbury to celebrate the Official Opening of the Club’s former home
-  as a unique residential development.
-  After 93 years as a football stadium, Highbury has been converted into over 650 high specification one,
-  two and three bedroom apartments and penthouses, with the development being named ‘Highbury Square’.
-  The Art Deco façades of Highbury’s old Grade II-Listed East Stand, with its famous Marble Hall,
-  and the locally-listed West Stand have been preserved, in order to retain the iconic status of the site.
-  The North and South Stands have been replaced by new-build apartments designed in a contemporary style
-  to harmonise with the East and West Stands.
-  Paying tribute to the football terraces’ original rectangular arrangement,
-  the apartments face inwards towards a central garden square, occupying the exact dimensions of the former pitch,
-  which is the focal point of the development.
-  Residents of Highbury Square will have access to a full range of amenities including a fitness centre,
-  24-hour concierge service and underground car parking. All apartments have access to the old two-acre Highbury pitch,
-  which has been converted into a private garden square.
-  The apartments are three tube stops from King’s Cross St. Pancras,
-  which serves the Eurostar to Paris and Brussels.
-  The project also includes over 70 apartments that are shared equity/affordable housing,
-  and also includes apartments that have been designed for disabled and wheelchair occupancy,
-  and there is now only limited availability on all apartments in the development.",
-  address: "Avenell Rd, Highbury Square, London N5 1FE",
+  name: "House of Zen",
+  description: "Big on Minimalism? Doing minimal work, paying your staff the bare minimum? We can tell you'll emjoy getting away from the riff-raff in this beautiful hideaway.",
+  address: "Binley Rd, Binley, Coventry",
+  image_url: "zen.jpg",
+  price_per_day: 75,
+  user_id: 1
+)
+puts "Boat desk created"
+Flat.create(
+  name: "Highbury Apartments",
+  description: "After 93 years as a football stadium, Highbury has been converted into luxurious Art Deco penthouses",
+  address: "Avenell Rd, Highbury Square, London",
   image_url: "highbury.jpg",
-  price_per_day: 175,
+  price_per_day: 180,
   user_id: 1
 )
 puts "Highbury Apartments desk created"
-
 puts "#{Flat.all.size} created"
