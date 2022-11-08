@@ -128,11 +128,32 @@ Flat.create(
 puts "Boat desk created"
 Flat.create(
   name: "Highbury Apartments",
-  description: "After 93 years as a football stadium, Highbury has been converted into luxurious Art Deco penthouses",
+  description: "After 93 years as a football stadium, Highbury has been converted into luxurious Art Deco penthouses.
+  Tottenham fans are of course as they have always been, not welcome.",
   address: "Avenell Rd, Highbury Square, London",
   image_url: "highbury.jpg",
   price_per_day: 180,
   user_id: 1
 )
 puts "Highbury Apartments desk created"
+Flat.create(
+  name: "Modern Office",
+  description: "A deceptive office, with its address being Chrysler World Headquarters and Technology Center.
+  The actual location is accessed via Hyperloop",
+  address: "Auburn Hills, Michigan",
+  image_url: "office.jpg",
+  price_per_day: 250,
+  user_id: 1
+)
+puts "Office desk created"
+Flat.create(
+  name: "River Office",
+  description: "Located in the depths of Cambodia, amongst the Tonle Sekong River is a distinct office environment
+  is the latest in Cambodian architecture. Chronologically speaking, this is the most modern office in Cambodia.",
+  address: "Tonle Sekong River, Cambodia",
+  image_url: "river-office.jpeg",
+  price_per_day: 60,
+  user_id: 1
+)
+puts "River office desk created"
 puts "#{Flat.all.size} created"
