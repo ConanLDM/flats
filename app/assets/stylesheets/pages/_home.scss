@@ -11,7 +11,7 @@ body {
   height: 40%;
 
   .hero {
-    background-image: asset-url("hero.jpg");
+    background-image: asset-url("hero.png");
     background-size: cover;
     width: 1035px;
     height: 680px;
@@ -67,7 +67,7 @@ body {
   }
 }
 
-.welcome-booking-form {
+.welcome-search-box {
   margin-top: 16px;
   display: flex;
   flex-grow: 1;
