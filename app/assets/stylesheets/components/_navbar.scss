@@ -1,15 +1,23 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #171c24;
   z-index: 1000;
-  font-family: "Nunito", "Helvetica", "sans-serif";
+  /*font-family: "Nunito", "Helvetica", "sans-serif";*/
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  color: whitesmoke;
+
+
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
   color: blue($color: #000000d1)
+}
+
+h3 span {
+  color: rgb(22, 90, 235);
 }
