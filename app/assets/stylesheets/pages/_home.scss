@@ -2,7 +2,6 @@ body {
   background-color: rgb(245, 245, 245);
 }
 
-
 .back {
   justify-content: end;
   z-index: 0;
@@ -72,7 +71,7 @@ body {
   display: flex;
   flex-grow: 1;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: #e8e8e8;
   width: inherit;
   border-radius: 0 0 16px 16px;
@@ -81,5 +80,17 @@ body {
   .btn-home-browse:hover {
     font-weight: bold;
     color: $blue;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 480px) {
+  .cards-container {
+    grid-template-columns: 1fr;
   }
 }

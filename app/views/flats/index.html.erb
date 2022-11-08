@@ -1,63 +1,30 @@
-<div class="card m-3 p-3 bounrded bg-dark text-light d-none">
-  <%# HIDDEN FOLDER %>
-
-
-
-  <h3>To do:</h3>
-  <ul>
-    <li>Remove the spacing between cards</li>
-    <li>Remove text decoration for the cards - <b>priority</b></li>
-    <li>Show view - <b>priority</b></li>
-    <li>Show edit view - optional</li>
-    <li><s>Add booking model - <b>priority</b></s></li>
-  </ul>
-<%= link_to "See this example", "https://july.fund/?ref=onepagelove", class: "text-info fs-2" %>
+<div class="m-2 px-5 py-3 searchbar-index">
+  <%= render "flats/search_bar" %>
 </div>
-
-  <%# this is for authenticated users - DEVISE %>
- <%# link_to 'Show', pin%>
- <%# if flat.user == current_user%>
-    <%# = link_to 'Edit', edit_flat_path(flat)  %>
- <%# link_to 'Destroy', pin, method: :delete, data: {confirm: 'Are you sure?' }  %>
-
-<%= render "flats/search_bar" %>
-
 
 <div class="container">
   <div class="cards-container">
-    <% @flats.each do |flat| %>
-      <%= link_to flat_path(flat) do %>
-        <div class="our-card rounded p-3">
-          <h4 class="fw-bold"><%= flat.name %></h4>
-          <% unless flat.image_url.nil? %>
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active ">
-                      <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid rounded" %>
-                    </div>
-                    <div class="carousel-item">
-                      <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid rounded" %>
-                    </div>
-                    <div class="carousel-item">
-                      <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid rounded" %>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>
-                <div class="card-text ">
-                  <p><%= flat.description %></p>
-                  <p class="btn btn-success"> £ <%= flat.price_per_day.floor %></p>
-                </div>
-          <% end %>
-        </div>
+    <% if !@flats.size.zero? %>
+      <% @flats.each do |flat| %>
+        <%= link_to flat_path(flat) do %>
+          <div class="our-card rounded py-3 px-2">
+            <h4 class="mb-3 pb-1 fw-bold text-dark"><%= flat.name %></h4>
+            <% unless flat.image_url.nil? %>
+              <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid mb-3 image-index" %>
+            <% end %>
+            <div class="card-text">
+            <p class="btn btn-lg btn-success p-1 fw">£<%= flat.price_per_day.floor %></p>
+            <p class="flat-description"><%= flat.description.truncate(150) %></p>
+            </div>
+          </div>
+        <% end %>
       <% end %>
+    <% else %>
+      <div class="ms-3 flex-grow-1">
+        <p class="fs-1"><%= icon('fa-solid', 'ghost', class:"pt-5 fa-beat fs-lg text-dark")%></p>
+        <p class="mb-0 fs-4 fw-bold">Hmm, nothing here.</p>
+        <p class="fs-5">It's good to be selective but maybe try searching again.</p>
+      </div>
     <% end %>
   </div>
 </div>

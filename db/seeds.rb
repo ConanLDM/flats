@@ -17,7 +17,7 @@ Flat.create(
 )
 puts "Volcano desk created"
 Flat.create(
-  name: "Home office in a TREE HOUSE",
+  name: "Home Office in a Tree House",
   description: "Live out your childhood dream whilst doing what make adult life suck - working!
   Features include the latest in high tech greenery, twigs and branches.",
   address: "West Lexham, Norfolk",
@@ -29,7 +29,7 @@ puts "Treehouse desk created"
 Flat.create(
   name: "Work from a pub today",
   description: "Pretend it's about getting a change of scenery and let us ply you with booze all day. It's a win-win!
-  Vodka, whiskey, beer, gin, lager, cider, stout, all can be looked while you work away!",
+  Vodka, whiskey, gin, lager, cider, stout, all while you work away!",
   address: "The Dog & Bell, 116 Prince St, London",
   image_url: "pub.gif",
   price_per_day: 10,
@@ -81,7 +81,7 @@ Flat.create(
   description: "Look out over this serene and tranquil lake as you hire, fire and power play.
   Do not expect 5G or fibre optic connection, a webpage loading in a minute is quick here.",
   address: "Crow Park Rd, Keswick",
-  image_url: "hero.jpg",
+  image_url: "hero.png",
   price_per_day: 120,
   user_id: 1
 )

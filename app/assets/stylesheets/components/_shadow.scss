@@ -4,8 +4,14 @@
 
 .avatar-shadow {
   box-shadow: 1px 1px #0000cc;
+  &:hover {
+    box-shadow: 1px 1px #0000cc73;
+  }
 }
 
 .text-shadow {
   text-shadow: 1px 1px #0000cc;
+  &:hover {
+    text-shadow: 1px 1px #0000cc73;
+  }
 }
