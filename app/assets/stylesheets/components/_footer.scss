@@ -1,7 +1,15 @@
+footer.top {
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+}
+footer.bottom {
+  opacity: 1;
+}
+
 .text-copyright {
   margin-bottom: 0;
-  position: absolute;
-  bottom: 0;
   font-size: small;
   color: rgba(0, 0, 0, 0.675);
 }
