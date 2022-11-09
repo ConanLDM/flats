@@ -1,7 +1,7 @@
-<%= form_with url: flats_path, method: :get, class: "w-100 d-flex shadow fs-1" do %>
+<%= form_with url: flats_path, method: :get, class: "w-100 d-flex shadow fs-1 text-black" do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control fs-4",
+    class: "form-control fs-4 text-black",
     placeholder: "Great views, outdoors, cool"
   %>
   <%= submit_tag "Find your focus", class: "btn btn-lg btn-dark" %>

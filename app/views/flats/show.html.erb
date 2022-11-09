@@ -2,39 +2,32 @@
   <div class="container mt-3 p-3 bg-white shadow-main rounded">
     <h2><strong><%= @flat.name %></strong></h2>
     <div class="d-flex flex-column">
-      <p><%= @flat.address %></p>
-      <div class="d-flex flex-row">
-      <% unless @flat.image_url.nil? %>
-        <%= image_tag @flat.image_url, alt: @flat.name, class: "w-50 img-fluid rounded" %>
-      <% end %>
-    <div class="container p-4">
-        <%= simple_form_for [@flat, @booking] do |f| %>
-         <p><%= @flat.description %></p>
-        <h4><strong>New Booking</strong></h4>
-          <%= f.input :start_date, html5: true %>
-          <%= f.input :end_date, html5: true %>
-          <%= f.submit "Book", class: "btn btn btn-success" %>
+      <p><%= icon('fa-solid', 'location-dot') %> <%= @flat.address %></p>
+      <div class="d-flex flex-row align-content-center">
+        <% unless @flat.image_url.nil? %>
+          <%= image_tag @flat.image_url, alt: @flat.name, class: "w-50 h-50 img-fluid rounded" %>
         <% end %>
+        <div class="container px-4 py-0">
+          <%= simple_form_for [@flat, @booking] do |f| %>
+            <p class="mb-3"><%= @flat.description %></p>
+            <h4><strong>Book this:</strong></h4>
+            <%= f.input :start_date, html5: true %>
+            <%= f.input :end_date, html5: true %>
+            <div class="d-flex flex-row-reverse">
+              <%= link_to "Back", flats_path, class: "btn btn-outline-dark ms-2" %>
+              <%= f.submit "Book", class: "btn btn-success" %>
+            </div>
+          <% end %>
         </div>
       </div>
-        <%= link_to "Back", flats_path, class: "btn btn-sm btn-outline-dark mt-2" %>
-        <p>Made active <%= @flat.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
-      </div>
     </div>
-    <div style="width: 100vh; height: 500px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+    <%# MAPBOX MAP %>
+    <div class="mb-3">
+    </div>
+    <div style="width:inherit; height: 180px"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
-
-<%# <% if @flat.user == current_user
-        <%# <%= link_to 'Edit', edit_flat_path(@flat)
-        <%# <%= link_to 'Back', flats_path
-
-
-<h4><%= @flat.name %></h4>
-
-<p>© <%= Date.today.year %> Desk Guru</p>
-<div >
