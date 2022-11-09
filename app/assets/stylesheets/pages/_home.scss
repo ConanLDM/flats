@@ -12,6 +12,8 @@ body {
   .hero {
     background-image: asset-url("hero.png");
     background-size: cover;
+    // NEED TO TEST THESE IN DIFFERENT SCREENS
+    // TRY REMS
     width: 1035px;
     height: 680px;
     display: block;
@@ -72,7 +74,7 @@ body {
   flex-grow: 1;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #e8e8e8;
+  background-color: #e8e8e88b;
   width: inherit;
   border-radius: 0 0 16px 16px;
   border: 0;
