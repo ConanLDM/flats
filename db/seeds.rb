@@ -151,7 +151,7 @@ Flat.create(
   description: "Located in the depths of Cambodia, amongst the Tonle Sekong River is a distinct office environment
   is the latest in Cambodian architecture. Chronologically speaking, this is the most modern office in Cambodia.",
   address: "Tonle Sekong River, Cambodia",
-  image_url: "river-office.jpeg",
+  image_url: "river-office.jpg",
   price_per_day: 60,
   user_id: 1
 )
