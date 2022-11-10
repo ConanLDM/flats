@@ -11,8 +11,20 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+                <div class="search-bar mx-auto">
+                    <%= form_with url: flats_path, method: :get, class: "w-100 d-flex shadow fs-1 " do %>
+                      <%= text_field_tag :query,
+                        params[:query],
+                        class: "form-control fs-5 my-sm-0 rounded-pill border border-3",
+                        placeholder: "Great views, outdoors, cool"
+                      %>
+                      <%= submit_tag "search", class: "btn btn-lg btn-dark rounded-pill border border-3 fs-6 " %>
+                    <% end %>
+                </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
       <ul class="navbar-nav me-auto">
+
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Browse", flats_path, class: "nav-link text-white" %>
