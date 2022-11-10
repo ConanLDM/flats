@@ -1,13 +1,14 @@
-<div class="back">
-  <div class="w-80 hero shadow-main"></div>
-</div>
-
-<div class="home-card front">
-  <div class="card-welcome shadow-main">
-    <h1>Work somewhere inspiring <span class="text-today">today</span></h1>
-    <div class="card welcome-search-box px-5">
-      <%= render "flats/search_bar" %>
-      <%= link_to "Explore deals of the day", flats_path, class: " btn btn-lg btn-info" %>
+<div class="container section-main-home">
+  <div class="back">
+    <div class="w-80 hero shadow-main"></div>
+  </div>
+  <div class="home-card front">
+    <div class="card-welcome shadow-main">
+      <h1>Work somewhere inspiring <span class="text-today">today</span></h1>
+      <div class="card welcome-search-box px-5">
+        <%= render "flats/search_bar" %>
+        <%= link_to "Explore deals of the day", flats_path, class: " btn btn-lg btn-info" %>
+      </div>
     </div>
   </div>
 </div>

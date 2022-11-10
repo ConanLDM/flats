@@ -1,4 +1,3 @@
-
 import { Controller } from "@hotwired/stimulus"
 // import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
@@ -9,15 +8,9 @@ export default class extends Controller {
   }
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-    console.log(' - - - - C O N N E C T E D - - - - -')
-
-    // MAKE SURE TO REMOVE
-    console.log(' - - - - R E M O V E - - - - -')
-    console.log(this.apiKey)
-
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb"
+      style: "mapbox://styles/mapbox/dark-v10"
     });
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
@@ -27,7 +20,7 @@ export default class extends Controller {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup) //check thuis!!!!
+        .setPopup(popup)
         .addTo(this.map)
     });
     this.#fitMapToMarkers()
