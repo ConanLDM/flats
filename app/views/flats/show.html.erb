@@ -1,4 +1,4 @@
-<div class="container mt-2">
+<div class="wrapper container mt-2">
   <div class="container mt-3 p-3 bg-white shadow-main rounded">
     <h2><strong><%= @flat.name %></strong></h2>
     <div class="d-flex flex-column">
@@ -14,8 +14,8 @@
             <%= f.input :start_date, html5: true %>
             <%= f.input :end_date, html5: true %>
             <div class="d-flex flex-row-reverse">
-              <%= link_to "Back", flats_path, class: "btn btn-outline-dark ms-2" %>
-              <%= f.submit "Book", class: "btn btn-success" %>
+              <%= link_to "Back", flats_path, class: "btn btn-outline-primary ms-2" %>
+              <%= f.submit "Book", class: "btn btn-primary" %>
             </div>
           <% end %>
         </div>

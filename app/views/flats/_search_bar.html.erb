@@ -1,14 +1,14 @@
 
 <% if controller_name != "pages" %>
-  <div class="search-bar mx-auto">
-    <%= form_with url: flats_path, method: :get, class: "w-100 d-flex fs-1" do %>
+  <div class="search_bar mx-auto me-4">
+    <%= form_with url: flats_path, method: :get, class: "align-items-center w-100 h-50 d-flex" do %>
       <%= text_field_tag :query,
           params[:query],
-          class: "form-control fs-5 my-sm-0 rounded-pill border border-1",
-          placeholder: "Great views, outdoors, cool"
+          class: "h-50 form-control fs-5 my-sm-0 rounded-pill border border-1",
+          placeholder: "River, lake, volcano"
           %>
-      <%= submit_tag "search", class: "btn btn-lg btn-dark rounded-pill border border-1 fs-6 me-1" %>
-
+          <div style="width: 8px;"></div>
+      <%= submit_tag "search", class: "btn h-50 btn-dark rounded-pill border border-1 fs-6 me-1" %>
     <% end %>
   </div>
 <% else %>
