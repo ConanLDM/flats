@@ -12,6 +12,9 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <%= render "flats/search_bar" unless controller_name=="pages" %>
+
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
