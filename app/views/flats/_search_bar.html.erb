@@ -1,8 +1,23 @@
-<%= form_with url: flats_path, method: :get, class: "search-form w-100 d-flex shadow fs-1 text-black z-index-1" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control fs-4 text-black",
-    placeholder: "Great views, outdoors, cool"
-  %>
-  <%= submit_tag "Find your focus", class: "btn btn-lg btn-dark" %>
+
+<% if controller_name != "pages" %>
+  <div class="search-bar mx-auto">
+    <%= form_with url: flats_path, method: :get, class: "w-100 d-flex fs-1" do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control fs-5 my-sm-0 rounded-pill border border-1",
+          placeholder: "Great views, outdoors, cool"
+          %>
+      <%= submit_tag "search", class: "btn btn-lg btn-dark rounded-pill border border-1 fs-6 me-1" %>
+
+    <% end %>
+  </div>
+<% else %>
+  <%= form_with url: flats_path, method: :get, class: "search-form w-100 d-flex shadow fs-1 text-black z-index-1" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control fs-4 text-black",
+      placeholder: "Great views, outdoors, cool"
+    %>
+    <%= submit_tag "Find your focus", class: "btn btn-lg btn-dark" %>
+  <% end %>
 <% end %>
