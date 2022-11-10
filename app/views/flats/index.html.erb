@@ -13,7 +13,7 @@
               <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid mb-3 image-index" %>
             <% end %>
             <div class="card-text">
-            <p class="btn btn-lg btn-success p-1 fw">£<%= flat.price_per_day.floor %></p>
+            <p class="btn btn-lg btn-primary opacity-75 p-1 fw">£<%= flat.price_per_day.floor %></p>
             <p class="flat-description"><%= flat.description.truncate(150) %></p>
             </div>
           </div>
