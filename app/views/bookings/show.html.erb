@@ -9,16 +9,16 @@
       <h2 class="fw-bold">Booking confirmed!</h2>
       <p class="my-3 text-gray">Just to let you know that everything went through.<br>You'll hear from your host shortly.</p>
     </div>
-    <h5 class="mt-4">You've got your own desk in <%= @booking.flat.address.gsub(/^.*, /, '') %> for <%= days %> days</h5>
+    <h5 class="mt-4">You've got your own desk in <%= @booking.flat.address.gsub(/^.*, /, '') %> for <%= pluralize days, "day" %></h5>
     <div class="d-flex flex-column">
       <%= image_tag @booking.flat.image_url, alt: @booking.flat.name, class: "mb-2 img-fluid rounded" %>
 
       <div class="d-flex flex-row px-2 py-0">
         <p class="col mb-0 text-start fs-6"><span class="fw-bold"><%= sd.strftime('%A') %></span><br>
-        <%= sd.strftime('%w %B %Y') %></p>
+        <%= sd.strftime('%e %B %Y') %></p>
         <div class="col flex-shrink-1"></div>
         <p class="col mb-0 text-end fs-6"><span class="fw-bold"><%= ed.strftime('%A') %></span><br>
-        <%= ed.strftime('%w %B %Y') %></p>
+        <%= ed.strftime('%e %B %Y') %></p>
       </div>
 
       <hr class="my-2 bg-primary border border-primary border-1 rounded">
