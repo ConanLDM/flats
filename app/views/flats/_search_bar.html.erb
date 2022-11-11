@@ -1,6 +1,6 @@
 
 <% if controller_name != "pages" %>
-  <div class="search_bar mx-auto me-4">
+  <div class="search_bar mx-auto me-3">
     <%= form_with url: flats_path, method: :get, class: "align-items-center w-100 h-50 d-flex" do %>
       <%= text_field_tag :query,
           params[:query],
@@ -9,6 +9,7 @@
           %>
           <div style="width: 8px;"></div>
       <%= submit_tag "search", class: "btn h-50 btn-dark rounded-pill border border-1 fs-6 me-1" %>
+
     <% end %>
   </div>
 <% else %>

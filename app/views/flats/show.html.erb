@@ -5,12 +5,20 @@
       <p><%= icon('fa-solid', 'location-dot') %> <%= @flat.address %></p>
       <div class="d-flex flex-row align-content-center">
         <% unless @flat.image_url.nil? %>
-          <%= image_tag @flat.image_url, alt: @flat.name, class: "w-50 h-50 img-fluid rounded" %>
+          <%= image_tag @flat.image_url, alt: @flat.name, class: "w-50 h-50 mt-3 img-fluid rounded" %>
         <% end %>
         <div class="container px-4 py-0">
+          <h4><strong>Book this place</strong></h4>
           <%= simple_form_for [@flat, @booking] do |f| %>
             <p class="mb-3"><%= @flat.description %></p>
-            <h4><strong>Book this:</strong></h4>
+            <div class="card-text mb-4 d-flex flex-row flex-wrap d-none">
+              <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'mug-hot', class:"")%> tea & coffee</p>
+              <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'person-military-rifle', class:"")%> personal death squad</p>
+              <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'people-group', class:"")%> meeting space</p>
+              <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'universal-access', class:"")%> accessible space</p>
+              <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'person-walking-arrow-loop-left', class:"")%> space for pacing</p>
+            </div>
+            <hr>
             <%= f.input :start_date, html5: true %>
             <%= f.input :end_date, html5: true %>
             <div class="d-flex flex-row-reverse">

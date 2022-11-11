@@ -1,5 +1,4 @@
 <div class="m-2 px-5 py-3 searchbar-index">
-
 </div>
 
 <div class="container">
@@ -7,15 +6,17 @@
     <% if !@flats.size.zero? %>
       <% @flats.each do |flat| %>
         <%= link_to flat_path(flat) do %>
-          <div class="our-card rounded py-3 px-2">
-            <h4 class="mb-3 pb-1 fw-bold text-dark"><%= flat.name %></h4>
+          <div class="our-card rounded px-1">
+            <h4 class="mb-0 pb-1 fw-bold text-dark"><%= flat.name %></h4>
+            <p class="flat-description"><%= flat.address.gsub(/^.*, /, '')  %></p>
+            <div class="div-button-price d-flex flex-row">
+              <div class="flex-grow-1"></div>
+              <p class="me-2 btn btn-lg btn-primary p-1 fw">£<%= flat.price_per_day.floor %></p>
+            </div>
             <% unless flat.image_url.nil? %>
               <%= image_tag flat.image_url, alt: flat.name, class: "w-80 img-fluid mb-3 image-index" %>
             <% end %>
-            <div class="card-text">
-            <p class="btn btn-lg btn-primary opacity-75 p-1 fw">£<%= flat.price_per_day.floor %></p>
             <p class="flat-description"><%= flat.description.truncate(150) %></p>
-            </div>
           </div>
         <% end %>
       <% end %>

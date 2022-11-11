@@ -11,7 +11,7 @@
   a {
     height:fit-content;
     display: flex;
-    padding: 8px;
+    padding: 16px 8px;
     flex-grow: 0;
     background-color: #fff;
     border-radius: 18px;
@@ -29,12 +29,29 @@
   height: 100%;
   .image-index {
     height: fit-content;
+    border-radius: 6px;
   }
 }
 
 .card-text {
   display: flex;
   flex-direction: column;
+}
+
+.div-button-price {
+  height: 0;
+  position: relative;
+  bottom: -6px;
+  .btn {
+    min-width: 50px;
+    height: fit-content;
+    opacity: 85%;
+    box-shadow: 0 0 5px 3px #07050094;
+    * {
+      opacity: 1;
+      font-weight: bold;
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -45,5 +62,19 @@
 @media screen and (max-width: 480px) {
   .cards-container {
     grid-template-columns: 1fr;
+  }
+
+  .div-button-price {
+    height: 0;
+    .btn {
+      min-width: 50px;
+      height: fit-content;
+      opacity: 85%;
+      box-shadow: 0 0 5px 3px #07050094;
+      * {
+        opacity: 1;
+        font-weight: bold;
+      }
+    }
   }
 }
