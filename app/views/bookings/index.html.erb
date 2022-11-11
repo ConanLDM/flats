@@ -17,18 +17,20 @@
     </div>
     <% @bookings.each do |booking| %>
       <div class="mb-2">
-        <h4 class="fw-bold mb-0"><%= link_to booking.flat.address.gsub(/^.*, /, ''), booking_path(booking), class: "text-decoration-none text-black" %></h4>
+        <h4 class="fw-bold mb-0"><%= booking.flat.address.gsub(/^.*, /, '') %></h4>
         <p class="mt-0 fs-5 text-gray"><%= booking.start_date.strftime('%e %b') %> to <%= booking.end_date.strftime('%e %b') %></p>
         <div class="d-flex d-row justify-content-between align-items-center mb-4 p-3 shadow-main">
           <% unless booking.flat.image_url.nil? %>
-            <%= image_tag booking.flat.image_url, alt: booking.flat.name, class: "w-25 img-fluid rounded" %>
+            <%= link_to booking_path(booking), class: "d-flex flex-row" do %>
+              <%= image_tag booking.flat.image_url, alt: booking.flat.name, class: "img-fluid rounded w-100 p-0 h-100" %>
+            <% end %>
           <% end %>
           <div class="d-flex flex-column flex-grow-1 ms-3">
-            <h5 class="fw-bold"><%= booking.flat.name %></h5>
-            <p><%= booking.flat.description %></p>
+            <h5 class="fw-bold"><%= link_to booking.flat.name, booking_path(booking), class: "text-decoration-none text-black" %></h5>
+            <p><%= link_to booking.flat.description, booking_path(booking), class: "text-decoration-none text-black" %></p>
           </div>
           <div class="mt-2 flex-grow-1 flex-end align-self-start">
-            <h4 class="fw-bold fs-5 me-4 text-end">£<%= booking.flat.price_per_day.floor %></h4>
+            <h4 class="fw-bold fs-5 me-4 text-end">£<%= link_to booking.flat.price_per_day.floor, booking_path(booking), class: "text-decoration-none text-black" %></h4>
           </div>
           <p class="btn btn-sm bg-white align-self-start"><%= icon('fa-solid', 'pen-to-square', class:"fa-7x, fs-4 text-center text-primary mb-2")%></p>
         </div>

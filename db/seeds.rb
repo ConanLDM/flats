@@ -60,7 +60,7 @@ Flat.create(
   name: "City slicker corner desk",
   description: "Don't just look out onto the world, look down on the little people from this exclusive, elite suite.
   Whether your riches have came from crypto or pyramid schemes, this is the perfect location to enjoy your hard work.",
-  address: "725 5th Ave, New York, NY",
+  address: "725 5th Ave, New York City",
   image_url: "city.jpg",
   price_per_day: 500,
   user_id: 1
