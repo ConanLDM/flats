@@ -15,6 +15,7 @@ class FlatsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @review = Review.new
     @markers = [
       {
         lat: @flat.geocode.first,

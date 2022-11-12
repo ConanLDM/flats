@@ -54,5 +54,18 @@
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+   <div data-controller="insert-in-list">
+  <div data-insert-in-list-target="items">
+    <% if @flat.reviews.blank? %>
+      Be the first to leave a review for <%= @flat.name %>
+    <% else %>
+      <% @flat.reviews.each do |review| %>
+        <%= render "reviews/review", review: review %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= render "reviews/form", flat: @flat, review: @review %>
+</div>
   </div>
 </div>
