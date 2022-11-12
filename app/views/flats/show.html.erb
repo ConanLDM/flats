@@ -11,7 +11,7 @@
           <h4><strong>Book this place</strong></h4>
           <%= simple_form_for [@flat, @booking] do |f| %>
             <p class="mb-3"><%= @flat.description %></p>
-            <div class="card-text mb-4 d-flex flex-row flex-wrap d-none">
+            <div class="card-text mb-4 d-flex flex-row flex-wrap">
               <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'mug-hot', class:"")%> tea & coffee</p>
               <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'person-military-rifle', class:"")%> personal death squad</p>
               <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'people-group', class:"")%> meeting space</p>
