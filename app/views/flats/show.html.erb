@@ -7,16 +7,33 @@
         <% unless @flat.image_url.nil? %>
           <%= image_tag @flat.image_url, alt: @flat.name, class: "w-50 h-50 mt-3 img-fluid rounded" %>
         <% end %>
+
+        <% unless @flat.photos.nil? %>
+          <% @flat.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, width: 400, height: 300, crop: :fill %>
+          <% end %>
+        <% end %>
+
+
+
         <div class="container px-4 py-0">
           <h4><strong>Book this place</strong></h4>
           <%= simple_form_for [@flat, @booking] do |f| %>
             <p class="mb-3"><%= @flat.description %></p>
             <div class="card-text mb-4 d-flex flex-row flex-wrap">
+            <% if rand(1..2).odd? %>
               <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'mug-hot', class:"")%> tea & coffee</p>
               <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'person-military-rifle', class:"")%> personal death squad</p>
               <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'people-group', class:"")%> meeting space</p>
               <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'universal-access', class:"")%> accessible space</p>
               <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'person-walking-arrow-loop-left', class:"")%> space for pacing</p>
+            <% else %>
+              <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'person-shelter') %> personal shelter</p>
+              <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'bell-concierge') %> private concierge</p>
+              <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'signs-post') %> easy to find</p>
+              <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'tower-cell') %> excellent coverage</p>
+            <% end %>
+
             </div>
             <hr>
             <%= f.input :start_date, html5: true %>

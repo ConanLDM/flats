@@ -1,4 +1,4 @@
- PERKS = [
+<% perks = [
   <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'mug-hot') %> tea & coffee</p>,
   <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'person-military-rifle') %> personal death squad</p>,
   <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'people-group') %> meeting space</p>,
@@ -12,6 +12,6 @@
   <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'bell-concierge') %> private concierge</p>,
   <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'signs-post') %> easy to find</p>,
   <p class="flat-icon mb-1 me-2"><%= icon('fa-solid', 'tower-cell') %> excellent coverage</p>
-]
+] %>
 
-<%= PERKS.in_groups_of(3) %>
+<%= perks.sample(4) %>
