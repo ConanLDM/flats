@@ -38,7 +38,7 @@ class FlatsController < ApplicationController
   end
 
   def edit
-    # TO DO
+    @flat = Flat.find(params[:id])
   end
 
   def update
@@ -61,7 +61,7 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:name, :address, :description, :price_per_day, :image_url, :photo)
+    params.require(:flat).permit(:name, :address, :description, :price_per_day, :image_url, photos: [])
   end
 
   def correct_user
